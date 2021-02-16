@@ -1,0 +1,123 @@
+﻿@model PensionManagement.Models.PensionerDetails
+
+@{
+    ViewData["Title"] = "ViewAllDetails";
+}
+<style>
+    .pic{
+        background: url('@Url.Content("~/css/bright-banner-inscription-pension-fund-cartoon_81522-4306.jpg")');
+        background-size: contain;
+        background-position:center;
+        background-repeat: no-repeat;
+    }
+    .fullscreen {
+        position: fixed;
+        top: 57px;
+        left: 0px;
+        bottom: 0;
+        right: 0;
+        overflow: auto;
+        background: url('@Url.Content("~/css/bright-banner-inscription-pension-fund-cartoon_81522-4306.jpg")');
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+    }
+    .blink_me {
+        animation: animate 2s linear infinite
+
+    }
+
+    @@keyframes animate {
+        50% {
+            opacity: 0;
+        }
+    }
+</style>
+<div class=" container pic">
+    <div class="container">
+        <h2>Hi <span class="blink_me" style="color:rebeccapurple">@ViewBag.Name</span></h2>
+        <table class="table  table-hover table-striped">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Aadhar)
+                </th>
+                <th>
+                    @Html.DisplayFor(model => model.Aadhar)
+                </th>
+
+            </tr>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.DOB)
+                </th>
+                <th>
+                    @Html.DisplayFor(model => model.DOB)
+                </th>
+
+            </tr>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.PAN)
+                </th>
+                <th>
+                    @Html.DisplayFor(model => model.PAN)
+                </th>
+
+            </tr>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.PensionType)
+                </th>
+                <th>
+                    @Html.DisplayFor(model => model.PensionType)
+                </th>
+
+            </tr>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.BankDetails.AccountNumber)
+                </th>
+                <th>
+                    @Html.DisplayFor(model => model.BankDetails.AccountNumber)
+                </th>
+
+            </tr>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.BankDetails.BankName)
+                </th>
+                <th>
+                    @Html.DisplayFor(model => model.BankDetails.BankName)
+                </th>
+
+            </tr>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.BankDetails.BankType)
+                </th>
+                <th>
+                    @Html.DisplayFor(model => model.BankDetails.BankType)
+                </th>
+
+            </tr>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Salary)
+                </th>
+                <th>
+                    @Html.DisplayFor(model => model.Salary) INR
+                </th>
+
+            </tr>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Allowances)
+                </th>
+                <th>
+                    @Html.DisplayFor(model => model.Allowances) INR
+                </th>
+
+            </tr>
+        </table>
+    </div>
+</div>

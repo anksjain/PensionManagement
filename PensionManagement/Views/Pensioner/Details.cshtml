@@ -1,0 +1,116 @@
+﻿@model PensionManagement.Models.Pension
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+@*<h2>Pension Amount for Aadhar Number-<span class="blink_me" style="color:rebeccapurple">@ViewBag.Name</span></h2>*@
+<style>
+    .thk {
+        text-align: right;
+        /* text-orientation: sideways-right; */
+        font-weight: 900;
+        font-size: large;
+        font-family: fantasy;
+    }
+    .pic{
+        background: url('@Url.Content("~/css/bright-banner-inscription-pension-fund-cartoon_81522-4306.jpg")');
+        background-size: contain;
+        background-position:center;
+        background-repeat: no-repeat;
+    }
+    .fullscreen {
+        position: fixed;
+        top: 57px;
+        left: 0px;
+        bottom: 0;
+        right: 0;
+        overflow: auto;
+        background: url('@Url.Content("~/css/bright-banner-inscription-pension-fund-cartoon_81522-4306.jpg")');
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-position:center;
+    }
+    .blink_me {
+        animation: animate 3s linear infinite
+
+    }
+    .hh{
+        font-family:fantasy
+    }
+
+    @@keyframes animate {
+        50% {
+            opacity: 0;
+        }
+    }
+</style>
+<div class=" container fullscreen">
+    <div class="container">
+        <br />
+        <h2>
+            Pension Amount
+        </h2>
+        <h2>Aadhar Number <span class="hh" style="color:dodgerblue;">@ViewBag.Name</span></h2>
+        @*<h2>Hi <span class="blink_me" style="color:rebeccapurple">@ViewBag.Name</span></h2>*@
+        <br />
+        <br />
+        <table class="table  table-hover table-striped">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Name)
+                </th>
+                <th>
+                    @Html.DisplayFor(model => model.Name)
+                </th>
+
+            </tr>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.DOB)
+                </th>
+                <th>
+                    @Html.DisplayFor(model => model.DOB)
+                </th>
+
+            </tr>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.PAN)
+                </th>
+                <th>
+                    @Html.DisplayFor(model => model.PAN)
+                </th>
+
+            </tr>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.PensionType)
+                </th>
+                <th>
+                    @Html.DisplayFor(model => model.PensionType)
+                </th>
+
+            </tr>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.PensionAmount)
+                </th>
+                <th class="thk">
+                    <span class="blink_me" style="color:darkblue">@Html.DisplayFor(model => model.PensionAmount) INR</span>
+                </th>
+
+            </tr>
+            <tr>
+                <th>
+                    <div>
+                        <input type="button" value="All Details" class="btn btn-info btn-outline-danger btn-md"  style="color:white;" onclick="location.href='@Url.Action("AllDetails","Pensioner")'"/>
+                    </div>
+                </th>
+                <th></th>
+            </tr>
+
+        </table>
+    </div>
+</div>

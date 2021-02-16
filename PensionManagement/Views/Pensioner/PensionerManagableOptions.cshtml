@@ -1,0 +1,74 @@
+﻿
+@{
+    ViewData["Title"] = "PensionerManagableOptions";
+}
+<style>
+    .blink_me {
+        animation: animate 1.5s linear infinite
+    }
+
+    @@keyframes animate {
+        50% {
+            opacity: 0;
+        }
+    }
+    .fullscreen {
+        position: fixed;
+        top: 57px;
+        left: 0px;
+        bottom: 0;
+        right: 0;
+        overflow: auto;
+        @*width:100%;
+        height:100%;*@
+        background: url('@Url.Content("~/css/pension-fund-vector.png")');
+        background-size: cover;
+        background-repeat: no-repeat;
+        @*background-attachment: fixed;*@
+    }
+    .jumbotron-fluid {
+        padding-right: 0;
+        padding-left: 0;
+        border-radius: 0;
+        /*    background: none;*/
+    }
+    .jombo {
+        padding: 2rem 1rem;
+        margin-bottom: 2rem;
+        
+         @*background: none;*@
+          background: url('@Url.Content("~/css/pension-fund-vector.png")');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        opacity:0.5;
+        /*    background-color: #e9ecef;*/
+        border-radius: 0.3rem;
+    }
+</style>
+<div class="fullscreen">
+    <div class="jumbotron-fluid">
+        <div class="container">
+            <h1 class="display-4" style="font-weight: bold; color: #125289;">Pension Management Portal</h1>
+            <p class="lead" style="font-weight: bold;color: #3a216c;">Comprehensive Solution To Handle The Activities Of Employee Retirement Benefit Funds With Intelligent Reporting Tools And Reminders</p>
+        </div>
+        <hr />
+        <br />
+    </div>
+    @*style="background-color:turquoise;padding:10px; opacity:0.5;"*@
+<div class="container">
+    <div class="row">
+        <div class="col-md-4" style="color:#174b4;opacity: 1">
+            <input type="button" value="Calculate Pension Amount" class="btn btn-success btn-group-justified btn-md active blink_me" onclick="location.href='@Url.Action("Index","Pensioner")'" />
+
+        </div>
+        <div class="col-md-4" style="color:#174b4;opacity: 1">
+            <input type="button" value="View Details by Aadhar Number" class="btn btn-outline-danger btn-group-justified btn-md active blink_me" onclick="location.href='@Url.Action("AllDetails","Pensioner")'" />
+
+        </div>
+        <div class="col-md-4" style="color:#174b4;opacity: 1">
+            <input type="button" value="View All Your Details" class="btn btn-outline-warning btn-group-justified btn-md active blink_me" onclick="location.href='@Url.Action("UserDetailsByAdhar","Pensioner")'" />
+        </div>
+    </div>
+</div>
+</div>

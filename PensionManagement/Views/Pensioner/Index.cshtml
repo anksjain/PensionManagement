@@ -1,0 +1,94 @@
+﻿@model PensionManagement.Models.PensionInput
+
+@{
+    ViewData["Title"] = "Index";
+}
+<style>
+    .blink_me {
+        animation: animate 1.5s linear infinite
+    }
+
+    @@keyframes animate {
+        50% {
+            opacity: 0;
+        }
+    }
+    .fullscreen {
+        @*position: fixed;*@
+        top: 57px;
+        left: 0px;
+        bottom: 0;
+        right: 0;
+        overflow: auto;
+        @*width:100%;
+        height:100%;*@
+        background: url('@Url.Content("~/css/pension-fund-vector.png")');
+        background-size: cover;
+        background-repeat: no-repeat;
+        @*background-attachment: fixed;*@
+    }
+</style>
+<div class="fullscreen">
+    <div class="container">
+        <h1>Check Your Pension Amount</h1>
+        <h4>Enter Your Details </h4>
+        <hr />
+        @if (ViewBag.ErrorMessage != null)
+        {
+            <b class="text-danger blink_me">@ViewBag.ErrorMessage</b>}
+        <div class="row">
+            <div class="col-md-4">
+                <form asp-action="Index">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group">
+                        <label asp-for="PensionerName" class="control-label"></label>
+                        <input asp-for="PensionerName" placeholder="Enter Your Full Name" class="form-control " />
+                        <span asp-validation-for="PensionerName" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="PensionerDOB" class="control-label"></label>
+                        <input asp-for="PensionerDOB" placeholder="Born Date & Year" class="form-control" />
+                        <span asp-validation-for="PensionerDOB" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="PensionerPAN" class="control-label"></label>
+                        <input asp-for="PensionerPAN" placeholder="Enter PAN number" class="form-control" />
+                        <span asp-validation-for="PensionerPAN" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="PensionType" class="control-label"></label>
+                        <select asp-for="PensionType" class="form-control" asp-items="@ViewBag.PensionTypeId"></select>
+                        <span asp-validation-for="PensionType" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Aadhar" class="control-label"></label>
+                        <input asp-for="Aadhar" placeholder="12 Digit Aadhar Number" class="form-control" />
+                        <span asp-validation-for="Aadhar" class="text-danger"></span>
+                    </div>
+                    @*<div class="row">*@
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-success">&crarr;&nbsp;Enter</button>
+                        </div>
+                        
+                        <div class="form-group ">
+                            <input type="button" value="Back to Pensioner Managable Options" class="btn btn-info" onclick="location.href='@Url.Action("Home", "Pensioner")'" />
+                        </div>
+                    @*</div>*@
+                </form>
+            </div>
+            @*<div class="col-md-8">
+                <img src=~/css/wb-pension-calculator.jpg style="width:800px;height:450px;padding-top:25px;padding-left:50px" />
+            </div>*@
+            @*<div>
+                <a class="btn btn-info btn-sm" asp-controller="Pensioner" asp-action="PensionerManagableOptions">
+                    Back to Pensioner Managable Options
+                </a>
+            </div>*@
+        </div>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
